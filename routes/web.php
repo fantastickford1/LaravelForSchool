@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  // Login view
+    return view('index');
 });
+
+Route::get('evidencias','EvidenciasController@index');
+Route::get('calificaciones','CalificacionesController@index');
+Route::get('ptc','ptcController@index');
+Route::get('ptc/get','ptcController@get');
+Route::get('PublicarEvidencias','publicarEvidenciasController@index');
+Route::get('registro','registroController@index');
