@@ -16,14 +16,7 @@ class EvidenciasController extends Controller
         //
         return view('Evidencias');
     }
-
-    public function get(){
-
-        $datas = DB::table('Evidencias').get();
-
-        return $datas;
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *

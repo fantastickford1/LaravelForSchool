@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Alumno;
+use App\PTC;
+use App\Asesor;
+use App\User;
 
 class registroController extends Controller
 {
@@ -36,6 +41,61 @@ class registroController extends Controller
     public function store(Request $request)
     {
         //
+        //dd(request()->all());
+
+        //$User = new User;
+
+        /**/
+        switch (request()->Perfil) {
+          case 'Alumno':
+          //$Alumno = new Alumno;
+          //echo "<script type='text/javascript'>alert('Alumno');</script>";
+          Alumno::create([
+             'Nombre'=> request('Nombre'),
+             'Apellido'=> request('Apellido')
+          ]);
+          User::create([
+              'name'=> request('Usuario'),
+              'profile'=> request(request()->Perfil),
+              'email'=> request('Correo'),
+              'password'=> request('password')
+          ]);
+            break;
+          case 'PTC':
+          //$PTC = new PTC;
+          //echo "<script type='text/javascript'>alert('PTC');</script>";
+          PTC::create([
+              'Nombre'=> request('Nombre'),
+              'Apellido'=> request('Apellido')
+          ]);
+          User::create([
+              'name'=> request('Usuario'),
+              'email'=> request('Correo'),
+              'password'=> request('password')
+          ]);
+          break;
+
+          case 'Asesor':
+          //$Asesor = new Asesor;
+          //echo "<script type='text/javascript'>alert('Asesor');</script>";
+          Asesor::create([
+              'Nombre'=> request('Nombre'),
+              'Apellido'=> request('Apellido')
+          ]);
+          User::create([
+              'name'=> request('Usuario'),
+              'email'=> request('Correo'),
+              'password'=> request('password')
+          ]);
+            break;
+
+          default:
+            # code...
+            break;
+        }
+        /**/
+
+        return redirect('/');
     }
 
     /**

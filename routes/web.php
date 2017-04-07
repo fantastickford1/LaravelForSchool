@@ -11,9 +11,20 @@
 |
 */
 
+
+
 Route::get('/', function () {
   // Login view
     return view('index');
+});
+
+Route::post('/login', function()
+{
+    $users = \App\User::all();
+
+    return 'Login';
+
+
 });
 
 Route::get('evidencias','EvidenciasController@index');
@@ -22,3 +33,4 @@ Route::get('ptc','ptcController@index');
 Route::get('ptc/get','ptcController@get');
 Route::get('PublicarEvidencias','publicarEvidenciasController@index');
 Route::get('registro','registroController@index');
+Route::post('/store','registroController@store');
