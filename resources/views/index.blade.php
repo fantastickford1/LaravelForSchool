@@ -17,13 +17,10 @@
         <div style="position: absolute;left: 35%;width: 32%; top: 31%;">
             <form class="" action="/login" method="post">
                 {{ csrf_field()}}
-                <input class="form-control" placeholder="User" type="text" >
+                {!!Form::text('Usuario',null,$atributes=['class'=>'form-control','placeholder'=>'Usuario'])!!}
                 <br>
-                <input class="form-control" placeholder="Password" type="text">
+                {!!Form::password('password',['class'=>'form-control','placeholder'=>'Password'])!!}
 
-                <br>
-                <label class="radio-inline"><input type="radio" value="perfil">PTC </label>
-                <label class="radio-inline"><input type="radio" value="perfil"> Alumno</label>
                  <br>
                  <br>
                 <button style="background-color: darkcyan;color:white; position: absolute;left: 39%;">Entrar</button>

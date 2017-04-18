@@ -22,15 +22,6 @@ class registroController extends Controller
         return view('Registrar');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,7 +34,6 @@ class registroController extends Controller
         //
         //dd(request()->all());
 
-        //$User = new User;
 
         /**/
         switch (request()->Perfil) {
@@ -56,7 +46,7 @@ class registroController extends Controller
           ]);
           User::create([
               'name'=> request('Usuario'),
-              'profile'=> request(request()->Perfil),
+              'profile'=> request()->Perfil,
               'email'=> request('Correo'),
               'password'=> request('password')
           ]);
@@ -71,23 +61,10 @@ class registroController extends Controller
           User::create([
               'name'=> request('Usuario'),
               'email'=> request('Correo'),
+              'profile'=> request()->Perfil,
               'password'=> request('password')
           ]);
           break;
-
-          case 'Asesor':
-          //$Asesor = new Asesor;
-          //echo "<script type='text/javascript'>alert('Asesor');</script>";
-          Asesor::create([
-              'Nombre'=> request('Nombre'),
-              'Apellido'=> request('Apellido')
-          ]);
-          User::create([
-              'name'=> request('Usuario'),
-              'email'=> request('Correo'),
-              'password'=> request('password')
-          ]);
-            break;
 
           default:
             # code...
@@ -98,48 +75,4 @@ class registroController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

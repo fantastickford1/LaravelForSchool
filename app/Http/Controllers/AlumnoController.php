@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class publicarEvidenciasController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class publicarEvidenciasController extends Controller
     public function index()
     {
         //
-        return view('PublicarEvidencias');
+        return view('Alumno/Alumno');
     }
 
     /**
@@ -22,11 +22,41 @@ class publicarEvidenciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function publicaciones()
     {
         //
+        return view('Alumno/PublicacionesdeEvi');
     }
 
+    public function calificiones()
+    {
+        # code...
+        return view('Alumno/CalificacionesdeEvi');
+    }
+
+    public function solicitudAsesoria()
+    {
+        # code...
+        return view('Alumno/SolicitudAsesorias');
+    }
+
+    public function asesorias()
+    {
+        # code...
+        return view('Alumno/PublicacionHorariosAsesorias');
+    }
+
+    public function cargaMaterias()
+    {
+        # code...
+        return view('Alumno/CargasdeMateriasAl');
+    }
+
+    public function entregas()
+    {
+        # code...
+        return view('Alumno/EntregaEvidencias');
+    }
     /**
      * Store a newly created resource in storage.
      *

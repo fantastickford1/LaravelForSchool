@@ -14,7 +14,25 @@ class ptcController extends Controller
     public function index()
     {
         //
-        return view('PTC');
+        return view('PTC/PTC');
+    }
+
+    public function publicar()
+    {
+      # code...
+      return view('PTC/PublicarEvidencias');
+    }
+
+    public function calificar()
+    {
+      # code...
+      return view('PTC/CalificacionesdeEvi');
+    }
+
+    public function entrega()
+    {
+      # code...
+      return view('PTC/Evidencias');
     }
 
     /**

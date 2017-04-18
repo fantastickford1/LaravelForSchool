@@ -43,6 +43,8 @@
                         {!!Form::submit('Registrar',['style'=>'background-color: darkcyan;color:white; position: absolute;left: 39%;']);!!}
                 </div>
             </form>
+            <br>
+            <br>
             <button onclick="window.location.replace('/');" style="background-color: darkcyan;color:white; position: absolute;left: 39%;">Volver</button>
 
         </div>

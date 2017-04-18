@@ -11,7 +11,7 @@
 |
 */
 
-
+use App\User;
 
 Route::get('/', function () {
   // Login view
@@ -20,17 +20,26 @@ Route::get('/', function () {
 
 Route::post('/login', function()
 {
-    $users = \App\User::all();
+    //dd(request()->all());
+    $userName = request()->Usuario;
 
-    return 'Login';
+    $Password = request()->password;
 
-
+    $users = User::where('name','=',$userName)->get();
+    //return $aux;
 });
 
-Route::get('evidencias','EvidenciasController@index');
-Route::get('calificaciones','CalificacionesController@index');
-Route::get('ptc','ptcController@index');
-Route::get('ptc/get','ptcController@get');
-Route::get('PublicarEvidencias','publicarEvidenciasController@index');
 Route::get('registro','registroController@index');
 Route::post('/store','registroController@store');
+Route::get('Alumno','AlumnoController@index');
+Route::get('Alumno/Publicaciones','AlumnoController@publicaciones');
+Route::get('Alumno/Calificaciones','AlumnoController@calificiones');
+Route::get('Alumno/CargaMaterias','AlumnoController@cargaMaterias');
+Route::get('Alumno/Entregas','AlumnoController@entregas');
+Route::get('Alumno/SolicitudAsesoria','AlumnoController@solicitudAsesoria');
+Route::get('Alumno/Asesorias','AlumnoController@asesorias');
+
+Route::get('PTC','ptcController@index');
+Route::get('PTC/Evidencias','ptcController@entrega');
+Route::get('PTC/Calificaciones','ptcController@calificar');
+Route::get('PTC/PublicarEvidencias','ptcController@publicar');
